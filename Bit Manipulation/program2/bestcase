@@ -1,1 +1,52 @@
+class Main
+{
+    //Solution
+    int MinFlips(int x,int y,int z)
+	 {
+	     //x=a,y=b,z=c;
+	     
+	     int i=0;
+	     int count=0;
 
+	    while(i<32)
+	    {
+	        int a1=1<<i&x;
+	        //a1 is i th bit of x=a
+	        int a2=1<<i&y;
+	        //a2 is i th bit of y=b
+	        int a3=1<<i&z;
+	        //a3 is i th bit of z=c
+	        if((a1|a2)!=a3)  //doing a1 or a2 i.e,i th bit of a and b comparing with a3 i.e, i th bit of c
+	        {
+	            if(a3==1)
+	            count=count+1; //if a3 is 1 then one bit in a or b you should change 
+	            else if(a3==0&&(a1!=a2)) 
+	            count++;
+	            else
+	            count=count+2; // if a3 is 0 then both the bits in a and b you should change
+	        }
+	        i++;
+	    }
+	    return count;//count is minimum no. of flips in a and b
+	 }
+	public static void main(String[] args) {
+	 
+	int a[]={2,7,0,16,1,2,367,87627675,76,900};
+	int b[]={6,9,0,0,1,20,89,987897876,55,800};
+	int c[]={5,9,0,16,1,3,0,89776,4,100}; //inputs 
+	int exoutput[]={3,2,0,0,0,3,11,25,6,7}; // expected output
+	Main o=new Main(); // creating object for Main class
+
+	int output[]=new int [10];
+	for(int j=0;j<10;j++)
+	output[j]=o.MinFlips(a[j],b[j],c[j]); // calling the MinFlips method
+   //Testing
+    for(int i=0;i<10;i++)
+    {
+	if(output[i]==exoutput[i]) // both are equal your answer is correct 
+	System.out.print(output[i]+" ");
+	else
+	System.out.println("Wrong"); 
+    }
+	}
+}
