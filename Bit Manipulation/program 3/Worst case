@@ -1,1 +1,34 @@
 
+class Main
+{
+    //Solution
+    int MaxEXOR(int []array)
+    {
+       int length=array.length;
+       int maxExorNo=0;
+     
+       for(int i=0;i<length;i++)
+       {
+           for(int j=0;j<length;j++)
+           {
+               int ExorNo=array[i] ^ array[j];
+               if(ExorNo>maxExorNo)
+               maxExorNo=ExorNo;
+           }
+       }
+       return maxExorNo; //maxExorNo is output
+    }
+    
+    
+	public static void main(String[] args) {
+	 int input[]={3,10,5,25,2,8}; //input 
+	 int exoutput=28; //expected output
+	 Main o=new Main(); // o is object creation for Main class
+	 int output=o.MaxEXOR(input); //calling method
+    //Testing
+    if(exoutput==output)
+    System.out.println(output);
+    else
+    System.out.println("Wrong");
+	}
+}
