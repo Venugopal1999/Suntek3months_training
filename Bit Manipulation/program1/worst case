@@ -1,0 +1,37 @@
+[10:17, 3/11/2020] Venuu: class Main
+{
+    //Solution
+    int[] ExorOfArrays(int []array,int [][]queiry)
+    {
+        int ExorNo=0;
+        int output1[]={0,0,0,0};
+        //Doing EXOR operation starting from  starting index i.e,queries[i][0] to endindex i.e, queries[i][1]
+        for(int i=0;i<array.length;i++)
+        {
+            output1[i]=0;
+          for(int j=queiry[i][0];j<=queiry[i][1];j++)
+          {
+              output1[i]=output1[i] ^ array[j];
+          }
+        }
+        return output1; //returning array 
+    }
+	public static void main(String[] args) {
+		int arr[]={1,3,4,8};
+		int queries[][]={{0,1},{1,2},{0,3},{3,3}};
+		int exoutput[]={2,7,14,8};
+		int output[]={0,0,0,0};
+		Main object=new Main();
+	
+	 output=object.ExorOfArrays(arr,queries); //Calling the method
+		
+		//Testing
+		for(int i=0;i<arr.length;i++)
+	     {
+	      if(output[i]==exoutput[i])
+	      System.out.print(output[i]+" ");
+	      else
+	      System.out.println("Wrong");
+	     }
+	}
+}
