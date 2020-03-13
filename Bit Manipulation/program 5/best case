@@ -1,0 +1,75 @@
+import java.util.*;
+
+public class Main
+
+{
+
+	public static ArrayList<Integer> countsetbits(int n)
+
+	{
+
+	   ArrayList al=new ArrayList();
+
+	   int i,count=0,r,temp;
+
+	   for(i=0;i<=n;i++)
+
+		{
+
+		    temp=i;
+
+		    while(temp>0)
+
+		    {
+
+		        r=temp%2;
+
+		        if(r==1)
+
+		        count++;
+
+		      temp=temp>>1;
+
+		    }
+
+		    al.add(count);
+
+		    count=0;
+
+		} 
+
+		return al;
+
+	}
+
+	public static void main(String[] args) {
+
+	    //input-2
+
+		ArrayList al=new ArrayList();//actual output
+
+		ArrayList al2=new ArrayList();//used for checking for with actual output
+
+		Scanner s=new Scanner(System.in);
+
+		int n=s.nextInt();
+
+		
+
+		al=countsetbits(n);
+
+		
+
+		al2.add(0);al2.add(1);al2.add(1);
+
+		if(al.equals(al2))
+
+		System.out.println(al);
+
+		else
+
+		System.out.println("Wrong");
+
+	}
+
+}
